@@ -1,0 +1,478 @@
+﻿<Window x:Class="RIP_PangYa.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RIP_PangYa"
+        xmlns:wpfanimatedgif="clr-namespace:WpfAnimatedGif;assembly=WpfAnimatedGif"
+        mc:Ignorable="d"
+        Title="Glassed MainWindow"
+        Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent" Loaded="Window_Loaded">
+    <Grid>
+        <!-- Janela com fundo desfocado -->
+        <Border CornerRadius="15" Padding="10" Opacity="1">
+            <Border.Background>
+                <VisualBrush Visual="{Binding ElementName=BlurLayer}"/>
+            </Border.Background>
+            <Grid>
+                <!-- Camada de fundo borrada separada -->
+                <Border x:Name="BlurLayer" Background="#CCFFFFFF" Opacity="0.9" IsHitTestVisible="False">
+                    <Border.Effect>
+                        <BlurEffect Radius="15"/>
+                    </Border.Effect>
+                </Border>
+
+                <!-- Cabeçalho customizado -->
+                <DockPanel VerticalAlignment="Top" Height="40" Background="Black" MouseDown="DockPanel_MouseDown" >
+                    <TextBlock Text="RIP PangYa" FontSize="16" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" Margin="10,0,0,0" />
+                    <Button Content="✖" Width="30" Height="30" VerticalAlignment="Center" HorizontalAlignment="Right" Click="CloseButton_Click" Margin="0,0,10,0"/>
+                </DockPanel>
+
+                <!-- Tabs -->
+                <TabControl Margin="0,40,0,0" Padding="0" Background="{x:Null}">
+                    <!-- Aba Caldeirao -->
+                    <TabItem Header="Caldeirao">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="5">
+                                <DockPanel Margin="5">
+                                    <Label Content="Item 1" Width="100" Foreground="Purple"/>
+                                    <TextBox Name="Item1TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Item 2" Width="100" Foreground="Purple"/>
+                                    <TextBox Name="Item2TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Item 3" Width="100" Foreground="Purple"/>
+                                    <TextBox Name="Item3TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Item 4" Width="100" Foreground="Purple"/>
+                                    <TextBox Name="Item4TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="????????" Width="100" Foreground="Purple"/>
+                                    <TextBox Name="Desconhecido1TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="????????" Width="100" Foreground="Purple"/>
+                                    <TextBox Name="Desconhecido2TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Quant. Max" Width="100" Foreground="Purple"/>
+                                    <TextBox Name="QuantidadeMaxTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Quant. Fazer" Width="100" Foreground="Purple"/>
+                                    <TextBox Name="QuantidadeFazerTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5">
+                                <DockPanel Margin="5">
+                                    <Label Content="Item 1" Width="100" Foreground="Green"/>
+                                    <TextBox Name="Item1GreenTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Item 2" Width="100" Foreground="Green"/>
+                                    <TextBox Name="Item2GreenTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Item 3" Width="100" Foreground="Green"/>
+                                    <TextBox Name="Item3GreenTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Item 4" Width="100" Foreground="Green"/>
+                                    <TextBox Name="Item4GreenTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Create" Width="100" Foreground="Green"/>
+                                    <TextBox Name="CreateTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Minimo" Width="100" Foreground="Green"/>
+                                    <TextBox Name="MinimoTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Maximo" Width="100" Foreground="Green"/>
+                                    <TextBox Name="MaximoTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="+1" Width="100" Foreground="Green"/>
+                                    <TextBox Name="Mais1TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="-1" Width="100" Foreground="Green"/>
+                                    <TextBox Name="Menos1TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <!-- Aba Memorial -->
+                    <TabItem Header="Memorial">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="5">
+                                <DockPanel Margin="5">
+                                    <Label Content="Memorial" Width="100"/>
+                                    <TextBox Name="MemorialTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Efeito Item" Width="100"/>
+                                    <TextBox Name="EfeitoItemTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Efeito Raridade" Width="100"/>
+                                    <TextBox Name="EfeitoRaridadeTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Item Ganho" Width="100"/>
+                                    <TextBox Name="ItemGanhoTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                            </StackPanel>
+                            <Image Grid.Column="1" Width="200" Height="200" Stretch="Uniform"
+               wpfanimatedgif:ImageBehavior.AnimatedSource="/Gifs/8iuey.gif" />
+                        </Grid>
+                    </TabItem>
+                    <!-- Aba Personagem -->
+                    <TabItem Header="Personagem">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="5">
+                                <DockPanel Margin="5">
+                                    <Label Content="Grid Personagem" Width="150"/>
+                                    <TextBox Name="GridPersonagemTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Pangya PIXEL" Width="150"/>
+                                    <TextBox Name="PangyaPixelTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Sempre PangYa" Width="150"/>
+                                    <TextBox Name="SemprePangYaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Calibrador" Width="150"/>
+                                    <TextBox Name="CalibradorTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Barra Estado" Width="150"/>
+                                    <TextBox Name="BarraEstadoTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Power Shot" Width="150"/>
+                                    <TextBox Name="PowerShotTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5">
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                    <!-- Aba Hole e Bola -->
+                    <TabItem Header="Hole e Bola">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="5">
+                                <DockPanel Margin="5">
+                                    <Label Content="Tee 1" Width="100"/>
+                                    <TextBox Name="Tee1TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Tee 2" Width="100"/>
+                                    <TextBox Name="Tee2TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Tee 3" Width="100"/>
+                                    <TextBox Name="Tee3TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Cos Bola" Width="100"/>
+                                    <TextBox Name="CosBolaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Sen Bola" Width="100"/>
+                                    <TextBox Name="SenBolaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Bola X" Width="100"/>
+                                    <TextBox Name="BolaXTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Bola Y" Width="100"/>
+                                    <TextBox Name="BolaYTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Spin" Width="100"/>
+                                    <TextBox Name="SpinTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Curva" Width="100"/>
+                                    <TextBox Name="CurvaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5">
+                                <DockPanel Margin="5">
+                                    <Label Content="Terreno" Width="100"/>
+                                    <TextBox Name="TerrenoTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Pin 1" Width="100"/>
+                                    <TextBox Name="Pin1TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Pin 2" Width="100"/>
+                                    <TextBox Name="Pin2TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Pin 3" Width="100"/>
+                                    <TextBox Name="Pin3TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Altura" Width="100"/>
+                                    <TextBox Name="AlturaHoleTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+
+                    <!-- Aba Vento -->
+                    <TabItem Header="Vento">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="5">
+                                <DockPanel Margin="5">
+                                    <Label Content="Cos" Width="100"/>
+                                    <TextBox Name="CosTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Sen" Width="100"/>
+                                    <TextBox Name="SenTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Vento" Width="100"/>
+                                    <TextBox Name="VentoTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Vento Oculto" Width="100"/>
+                                    <TextBox Name="VentoOcultoTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                </DockPanel>
+                            </StackPanel>
+                            <Image Grid.Column="1" Width="200" Height="200" Stretch="Uniform"
+               wpfanimatedgif:ImageBehavior.AnimatedSource="/Gifs/7jhdy.gif" />
+                        </Grid>
+                    </TabItem>
+                    <!-- Aba Game Base -->
+                    <TabItem Header="Game Base" Background="Orange">
+                        <Grid Margin="10">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Column="0" Margin="5">
+                                        <DockPanel Margin="5">
+                                            <Label Content="Altura" Width="100"/>
+                                            <TextBox Name="AlturaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Largura" Width="100"/>
+                                            <TextBox Name="LarguraTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Recovery x2" Width="100"/>
+                                            <TextBox Name="RecoveryX2TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Gravidade" Width="100"/>
+                                            <TextBox Name="GravityTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Factor de Forca" Width="100"/>
+                                            <TextBox Name="FactorForcaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Bola Diametro" Width="100"/>
+                                            <TextBox Name="BolaDiametroTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Bola Massa" Width="100"/>
+                                            <TextBox Name="BolaMassaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Constante Curva" Width="100"/>
+                                            <TextBox Name="ConstanteCurvaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Constante Spin" Width="100"/>
+                                            <TextBox Name="ConstanteSpinTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Margin="5">
+                                        <DockPanel Margin="5">
+                                            <Label Content="Matriz de Algo" Width="100"/>
+                                            <TextBox Name="MatrizAlgoTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Quique da Bola" Width="100"/>
+                                            <TextBox Name="QuiqueBolaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Vetor da Queda" Width="100"/>
+                                            <TextBox Name="VetorQuedaTEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Nao sei" Width="100"/>
+                                            <TextBox Name="NaoSei1TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Nao sei" Width="100"/>
+                                            <TextBox Name="NaoSei2TEXT" Width="200" GotFocus="TextBox_GotFocus" KeyDown="TextBox_KeyDown"/>
+                                        </DockPanel>
+                                        <DockPanel Margin="5">
+                                            <Label Content="Pangya Versao" Width="100"/>
+                                            <ComboBox Width="200" SelectedIndex="0">
+                                                <ComboBoxItem Content="Pangya JP"/>
+                                                <ComboBoxItem Content="Pangya TH"/>
+                                                <ComboBoxItem Content="Pangya USA"/>
+                                            </ComboBox>
+                                        </DockPanel>
+                                    </StackPanel>
+                                </Grid>
+                            </ScrollViewer>
+                        </Grid>
+                    </TabItem>
+                    <!-- Aba Calculadora -->
+                    <TabItem Header="Calculadora" Background="CornflowerBlue">
+                        <Grid Margin="10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="5">
+                                <DockPanel Margin="5">
+                                    <Label Content="Distancia" Width="100"/>
+                                    <TextBox Name="textBox_common_distance" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Altura" Width="100"/>
+                                    <TextBox Name="textBox_common_height" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Vento" Width="100"/>
+                                    <TextBox Name="textBox_common_wind" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Angulo" Width="100"/>
+                                    <TextBox Name="textBox_common_degree" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Terreno" Width="100"/>
+                                    <TextBox Name="textBox_common_ground" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content= "Spin" Width="100"/>
+                                    <TextBox Name="textBox_common_spin" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Curva" Width="100"/>
+                                    <TextBox Name="textBox_common_curve" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Bola Quebra" Width="100"/>
+                                    <TextBox Name="textBox_common_slope_break" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Name="label_result" Width="150" Foreground="Red" FontWeight="Bold"/>
+                                    <Label Name="label_desviopb" Width="150" Foreground="Red" FontWeight="Bold"/>
+                                    <Label Name="label_calippers8" Width="150" Foreground="Red" FontWeight="Bold"/>
+                                </DockPanel>
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Margin="5">
+                                <DockPanel Margin="5">
+                                    <Label Content="Forca" Width="100"/>
+                                    <TextBox Name="textBox_charStats_power" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Anel Forca" Width="100"/>
+                                    <TextBox Name="textBox_charStats_ring_power" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Card Forca" Width="100"/>
+                                    <TextBox Name="textBox_charStats_card_power" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Mascote Forca" Width="100"/>
+                                    <TextBox Name="textBox_charStats_mascot_power" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Card Forca Slot" Width="100"/>
+                                    <TextBox Name="textBox_charStats_cardPower_ShotPower" Width="200"/>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Taco" Width="100"/>
+                                    <ComboBox Name="comboBox_Club" Width="200" SelectedIndex="0">
+                                        <ComboBoxItem Content="1W"/>
+                                        <ComboBoxItem Content="2W"/>
+                                        <ComboBoxItem Content="3W"/>
+                                        <ComboBoxItem Content="9I"/>
+                                        <ComboBoxItem Content="8I"/>
+                                        <ComboBoxItem Content="7I"/>
+                                        <ComboBoxItem Content="6I"/>
+                                        <ComboBoxItem Content="5I"/>
+                                        <ComboBoxItem Content="4I"/>
+                                        <ComboBoxItem Content="3I"/>
+                                        <ComboBoxItem Content="2I"/>
+                                        <ComboBoxItem Content="PW"/>
+                                        <ComboBoxItem Content="SW"/>
+                                    </ComboBox>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Tacada" Width="100"/>
+                                    <ComboBox Name="comboBox_Shot" Width="200" SelectedIndex="0">
+                                        <ComboBoxItem Content="Dunk"/>
+                                        <ComboBoxItem Content="Tomahawk"/>
+                                        <ComboBoxItem Content="Spike"/>
+                                        <ComboBoxItem Content="Cobra"/>
+                                    </ComboBox>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="Power Shot" Width="100"/>
+                                    <ComboBox Name="comboBox_PowerShot" Width="200" SelectedIndex="0">
+                                        <ComboBoxItem Content="No Power Shot"/>
+                                        <ComboBoxItem Content="1 Power Shot"/>
+                                        <ComboBoxItem Content="2 Power Shot"/>
+                                        <ComboBoxItem Content="15y Power Shot"/>
+                                    </ComboBox>
+                                </DockPanel>
+                                <DockPanel Margin="5">
+                                    <Label Content="" Width="100"/>
+                                    <Button Content="Calcular"  Width="200" Click="Button_Click"/>
+                                </DockPanel>
+                            </StackPanel>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
